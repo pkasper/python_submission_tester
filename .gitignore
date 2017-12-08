@@ -2,3 +2,5 @@
 DATA/SUBMISSION/*
 DATA/TESTCASE/*
 DATA/TEMP/*
+
+__pycache__
