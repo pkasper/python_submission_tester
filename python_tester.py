@@ -32,6 +32,8 @@ if __name__ == '__main__':
     for palme_submission in palme_submissions:
         matr_match = re.match(string=palme_submission, pattern="Matrikelnummer_(?P<matr>[0-9]*)_")
         mat_nr = matr_match.group("matr")
+        # if mat_nr != "99999999":
+        #    continue
         last_submission = list(os.listdir(submission_dir + palme_submission))[-1]
 
         submission_path = submission_dir + palme_submission + "/" + last_submission
