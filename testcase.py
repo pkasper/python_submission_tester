@@ -75,6 +75,8 @@ class Testcase:
 
         if "output" in _config:
             for output_dir in _config['output']:
+                if os.path.exists(self._temp_dir + self._subfolder + output_dir):
+                    shutil.rmtree(self._temp_dir + self._subfolder + output_dir)
                 os.makedirs(self._temp_dir + self._subfolder + output_dir)
 
         success = False
@@ -117,8 +119,8 @@ class Testcase:
                 console_output = std_out.decode().strip().replace("\r\n", "\n")
 
                 if "validate" in _config:
-                    print("OUT", std_out)
-                    print("ERR", std_err)
+                    #print("OUT", std_out)
+                    #print("ERR", std_err)
                     for validation_function in _config['validate']:
                         if not validation_function(self._temp_dir):
                             validaion_success = False
